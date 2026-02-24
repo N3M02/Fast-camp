@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: #a8ddff;
+}
+
+/* ชั้นท้องฟ้าหลัก */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    background:
+        radial-gradient(circle at 50% 85%, #ffffff99 0%, transparent 55%),
+        radial-gradient(circle at 20% 35%, #ffffff66 0%, transparent 45%),
+        radial-gradient(circle at 80% 25%, #ffffff55 0%, transparent 40%),
+        linear-gradient(
+            to top,
+            #5ec8ff 0%,
+            #87dbff 35%,
+            #bdeaff 65%,
+            #e6f8ff 100%
+        );
+
+    background-size: 120% 120%;
+    animation: skyFloat 40s ease-in-out infinite alternate;
+    will-change: transform, background-position;
+}
+
+/* เมฆฟุ้ง */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background:
+        radial-gradient(circle at 30% 60%, #ffffff66 0%, transparent 50%),
+        radial-gradient(circle at 70% 45%, #ffffff44 0%, transparent 55%);
+
+    filter: blur(70px);
+    animation: cloudRise 70s linear infinite;
+}
+
+@keyframes skyFloat {
+    0% {
+        background-position: 50% 100%;
+        transform: scale(1);
+    }
+    100% {
+        background-position: 50% 0%;
+        transform: scale(1.08);
+    }
+}
+
+@keyframes cloudRise {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-70px);
+    }
+}
