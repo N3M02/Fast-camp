@@ -1,4 +1,3 @@
-    <script src="https://cdn.tailwindcss.com"></script>
 <?php
 session_start();
 // Mock session for demo - remove in production
